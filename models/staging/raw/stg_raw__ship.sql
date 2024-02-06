@@ -1,6 +1,6 @@
 with
 
-    source as (select * from {{ source("W4D2", "raw_gz_ship") }}),
+    source as (select * from {{ source("raw", "ship") }}),
 
     renamed as (select orders_id, shipping_fee, logcost, ship_cost from source)
 
