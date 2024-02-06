@@ -46,6 +46,8 @@ models:
   - name: stg_raw__product
   - name: stg_raw__sales
   - name: stg_raw__ship
-  
+  - name: int_sales_margin
+  - name: int_orders_margin
+
   
   
