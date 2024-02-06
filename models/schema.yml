@@ -3,13 +3,23 @@ version: 2
 sources:
   - name: raw
     schema: W4D2
+    description: week 4 challenge dbt
   
     tables:
       - name: product
         identifier: raw_gz_product
+        description: product info
       - name: sales
         identifier: raw_gz_sales
+        description: sales info
+        columns:
+          - name: products_id
+            tests:
+              - unique
+              - not_null
+                  
       - name: ship
         identifier : raw_gz_ship
+        description: ship info
 
 

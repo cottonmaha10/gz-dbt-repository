@@ -13,10 +13,11 @@ renamed as (
         orders_id,
         pdt_id AS products_id,
         revenue,
-        quantity
-
+        quantity,
     from source
 
 )
 
-select * from renamed
+select 
+
+from renamed
