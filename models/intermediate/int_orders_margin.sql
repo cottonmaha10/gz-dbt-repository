@@ -7,6 +7,7 @@ from {{ref("int_sales_margin")}}
 GROUP BY 1)
 
 SELECT 
-total_margin/nb_orders
+date_date
+,ROUND (total_margin/nb_orders,2) AS margin_per_order
 from sqa
 --CALCULATE MARGIN PER ORDER
