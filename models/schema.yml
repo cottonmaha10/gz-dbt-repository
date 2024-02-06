@@ -10,14 +10,44 @@ sources:
         identifier: raw_gz_product
         description: product info
         columns:
-          - name: pdt_id
-        tests:
-          - unique
+          - name: products_id
+            tests:
+              - unique
 
       - name: sales
         identifier: raw_gz_sales
         description: sales info
+        
+        
+        columns:
+          - name: "pdt_id || '-' || orders_id"
+            tests:
+              - unique
+          - name: date_date
+            freshness:          
+              warn_after:
+              count: 90
+              period: day
+            error_after: 
+              count: 100
+              period: day
+            loaded_at_field: "CAST (date_date AS TIMESTAMP)"
 
       - name: ship
         identifier: raw_gz_ship
         description: ship info
+        columns:
+          - name: orders_id
+            tests:
+              - unique
+
+models:
+
+  - name: stg_raw__product
+  - name: stg_raw__sales
+  - name: stg_raw__ship
+  - name: int_sales_margin
+  - name: int_orders_margin
+
+  
+  
