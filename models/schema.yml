@@ -40,3 +40,12 @@ sources:
           - name: orders_id
             tests:
               - unique
+
+models:
+
+  - name: stg_raw__product
+  - name: stg_raw__sales
+  - name: stg_raw__ship
+  
+  
+  
