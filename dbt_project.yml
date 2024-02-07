@@ -35,7 +35,7 @@ clean-targets: # directories to be removed by `dbt clean`
 
 models:
   Analytics:
-  Mart:
-    +materialized: "table"
-    finance:
-      +schema:finance_days
+    Mart:
+      +materialized: table
+      finance: 
+        +schema: finance_days

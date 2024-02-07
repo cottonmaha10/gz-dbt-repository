@@ -1,10 +1,24 @@
 version: 2
-
 sources:
+  - name: raw2
+    schema: Week4D3
+    description: additional work marketing wants us to do for free 
+    tables:
+      - name: adwords
+        identifier: raw_gz_adwords
+
+      - name: criteo
+        identifier: raw_gz_criteo
+
+      - name: facebook
+        identifier : raw_gz_facebook
+
+      - name: bing
+        identifier: raw_gz_bing
+    
   - name: raw
     schema: W4D2
     description: week 4 challenge dbt
-
     tables:
       - name: product
         identifier: raw_gz_product
@@ -41,6 +55,8 @@ sources:
             tests:
               - unique
 
+
+
 models:
 
   - name: stg_raw__product
@@ -48,6 +64,7 @@ models:
   - name: stg_raw__ship
   - name: int_sales_margin
   - name: int_orders_margin
+  - name: finance_days
 
   
   
