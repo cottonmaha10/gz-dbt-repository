@@ -65,6 +65,10 @@ models:
   - name: int_sales_margin
   - name: int_orders_margin
   - name: finance_days
+  - name: stg_raw2_adwords
+  - name: stg_raw2_facebook
+  - name: stg_raw2_bing
+  - name: stg_raw2_criteo
 
   
   
