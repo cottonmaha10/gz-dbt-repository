@@ -1,21 +1,24 @@
-with
+with 
 
-    source as (select * from {{ source("raw2", "adwords") }}),
+source as (
 
-    renamed as (
+    select * from {{ source('raw2', 'adwords') }}
 
-        select
-            date_date,
-            paid_source,
-            campaign_key,
-            campgn_name as campaign_name,
-            cast(ads_cost as float64) as ads_cost,
-            impression,
-            click
+),
 
-        from source
+renamed as (
 
-    )
+    select
+        date_date,
+        paid_source,
+        campaign_key,
+        campgn_name as campaign_name,
+        cast(ads_cost as float64) as ads_cost,
+        impression,
+        click
 
-select *
-from renamed
+    from source
+
+)
+
+select * from renamed

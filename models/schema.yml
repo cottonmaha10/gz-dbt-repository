@@ -6,10 +6,10 @@ sources:
     tables:
       - name: adwords
         identifier: raw_gz_adwords
-        columns:
-          - name: "date_date || '-' || campagn_key"
-            tests:
-              - unique
+
+        tests:
+          - unique:
+              column_name: "(date_date || '-' || campaign_key)"
 
       - name: criteo
         identifier: raw_gz_criteo
@@ -70,3 +70,5 @@ models:
   - name: stg_raw2_bing
   - name: stg_raw2_criteo
   - name: int_campaigns
+  - name: campaigns_day
+  - name: financecampaign_days
