@@ -2,20 +2,24 @@ version: 2
 sources:
   - name: raw2
     schema: Week4D3
-    description: additional work marketing wants us to do for free 
+    description: additional work marketing wants us to do for free
     tables:
       - name: adwords
         identifier: raw_gz_adwords
+        columns:
+          - name: "date_date || '-' || campagn_key"
+            tests:
+              - unique
 
       - name: criteo
         identifier: raw_gz_criteo
 
       - name: facebook
-        identifier : raw_gz_facebook
+        identifier: raw_gz_facebook
 
       - name: bing
         identifier: raw_gz_bing
-    
+
   - name: raw
     schema: W4D2
     description: week 4 challenge dbt
@@ -31,18 +35,17 @@ sources:
       - name: sales
         identifier: raw_gz_sales
         description: sales info
-        
-        
+
         columns:
           - name: "pdt_id || '-' || orders_id"
             tests:
               - unique
           - name: date_date
-            freshness:          
+            freshness:
               warn_after:
               count: 90
               period: day
-            error_after: 
+            error_after:
               count: 100
               period: day
             loaded_at_field: "CAST (date_date AS TIMESTAMP)"
@@ -55,10 +58,7 @@ sources:
             tests:
               - unique
 
-
-
 models:
-
   - name: stg_raw__product
   - name: stg_raw__sales
   - name: stg_raw__ship
@@ -69,6 +69,4 @@ models:
   - name: stg_raw2_facebook
   - name: stg_raw2_bing
   - name: stg_raw2_criteo
-
-  
-  
+  - name: int_campaigns
