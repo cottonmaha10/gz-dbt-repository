@@ -1,3 +1,3 @@
-SELECT *
+{{config(materialized='table')}}
 
-from {{ref("int_orders_margin")}}
+select * from {{ ref("int_orders_margin") }} where total_margin>5000
